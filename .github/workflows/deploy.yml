@@ -24,8 +24,13 @@ jobs:
 
       - name: Inject GitHub Token
         run: |
-          sed -i "s/YOUR_GITHUB_TOKEN_HERE/${{ secrets.GH_TOKEN }}/g" src/environments/environment.ts
-          sed -i "s/YOUR_GITHUB_TOKEN_HERE/${{ secrets.GH_TOKEN }}/g" src/environments/environment.prod.ts
+          sed -i "s|YOUR_GITHUB_TOKEN_HERE|${{ secrets.GH_TOKEN }}|g" src/environments/environment.ts
+          sed -i "s|YOUR_GITHUB_TOKEN_HERE|${{ secrets.GH_TOKEN }}|g" src/environments/environment.prod.ts
+          # Verification step (don't print the actual token!)
+          if grep -q "YOUR_GITHUB_TOKEN_HERE" src/environments/environment.prod.ts; then
+            echo "Error: Token injection failed!"
+            exit 1
+          fi
 
       - name: Build
         run: npm run build -- --base-href /github-profile/
