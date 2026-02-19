@@ -44,5 +44,4 @@ __screenshots__/
 Thumbs.db
 
 # Environments
-/src/environments/environment.ts
-/src/environments/environment.prod.ts
+# environment files are now included so they can be securely injected during CI
