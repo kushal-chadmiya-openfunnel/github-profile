@@ -24,6 +24,7 @@ jobs:
 
       - name: Inject GitHub Token
         run: |
+          sed -i "s/YOUR_GITHUB_TOKEN_HERE/${{ secrets.GH_TOKEN }}/g" src/environments/environment.ts
           sed -i "s/YOUR_GITHUB_TOKEN_HERE/${{ secrets.GH_TOKEN }}/g" src/environments/environment.prod.ts
 
       - name: Build
