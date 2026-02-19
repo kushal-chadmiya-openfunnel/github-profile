@@ -1,60 +1,72 @@
-# GithubProfileClone
+# GitHub Profile UI Clone
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+A modern, high-fidelity clone of the GitHub Profile page built with Angular. This project demonstrates visual accuracy, responsive design, and dynamic data integration using the GitHub API.
 
-## Development server
+## 🚀 Getting Started
 
-To start a local development server, run:
+### Prerequisites
 
-```bash
-ng serve
-```
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) (installed with Node.js)
+- [Angular CLI](https://angular.dev/tools/cli) (`npm install -g @angular/cli`)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Installation
 
-## Code scaffolding
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/kushal-chadmiya-openfunnel/github-profile.git
+   cd github-profile
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+## ⚙️ Configuration
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+To fetch real-time data from GitHub, you need to provide a Personal Access Token (PAT).
 
-```bash
-ng generate --help
-```
+1. **Generate a Token:**
+   - Go to [GitHub Settings → Developer Settings → Personal access tokens → Fine-grained tokens](https://github.com/settings/tokens?type=beta) (or Classic).
+   - Generate a new token with at least `read:user` (and optionally `repo`) scope.
 
-## Building
+2. **Configure Environments:**
+   - Open `src/environments/environment.ts` (for development) and `src/environments/environment.prod.ts` (for production).
+   - Replace `'YOUR_GITHUB_TOKEN_HERE'` with your actual token:
+     ```typescript
+     export const environment = {
+       production: false,
+       githubToken: 'ghp_your_token_here'
+     };
+     ```
 
-To build the project run:
+> [!IMPORTANT]
+> The environment files are excluded from Git to protect your secrets. You must manually add your token after cloning.
 
-```bash
-ng build
-```
+## 🛠️ Features
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Visual Accuracy**: Styled to match GitHub's modern dark/light themes.
+- **Dynamic Profile Data**: Fetches user biography, statistics, and profile details via GitHub REST API.
+- **Contribution Graph**: A fully functional contribution grid with the ability to switch between different contribution years.
+- **Pinned Repositories**: Displays a curated list of repositories in the familiar GitHub layout.
+- **Responsive Design**: Optimized for different screen sizes from mobile to desktop.
 
-## Running unit tests
+## 💻 Development Commands
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Command | Description |
+| :--- | :--- |
+| `ng serve` | Runs the app on `http://localhost:4200/`. |
+| `ng build` | Builds the project for production in `dist/`. |
+| `ng test` | Executes unit tests via Vitest. |
+| `ng lint` | Runs linting checks (if configured). |
 
-```bash
-ng test
-```
+## 🔍 Note to Reviewer
 
-## Running end-to-end tests
+- **Architecture**: The project follows a modular structure (Core, Shared, Features) for better maintainability.
+- **State Management**: Uses Angular's reactive patterns and services to handle data flow.
+- **Styling**: Leverages Vanilla CSS with a focus on CSS variables for theme consistency and layout flexibility.
+- **Interceptors**: Uses a `github-auth.interceptor.ts` to automatically attach the PAT to all GitHub API requests.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# github-profile
+---
+*Created for the UptimeAI Technical Assessment.*
