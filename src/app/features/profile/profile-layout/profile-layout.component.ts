@@ -138,8 +138,8 @@ import { switchMap } from 'rxjs/operators';
     .sidebar-wrapper {
       width: 296px;
       flex-shrink: 0;
-      margin-top: -32px; 
-      z-index: 20;
+      /* Avoid pulling the avatar up under the sticky tabs */
+      margin-top: 16px;
     }
     
     .tab-content-wrapper {

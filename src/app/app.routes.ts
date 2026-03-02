@@ -19,7 +19,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'kushal-chadmiya-openfunnel', // Updated to match user in screenshot
+        redirectTo: 'shreeramk',
         pathMatch: 'full'
     }
 ];
